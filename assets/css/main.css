@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* if note responsive on smaller screen cuz of vh remove it */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tic-tac-toe {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.game-title {
+    text-align: center;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 200px);
+    gap: 16px;
+    position: relative;
+}
+
+.game-board .cell {
+    cursor: pointer;
+    font-size: 4rem;
+}
+
+.game-board .cell:disabled {
+    /* background-color: ; */
+}
+
+.reset-btn {
+    width: fit-content;
+    margin: auto;
+    padding: 8px 25px;
+    cursor: pointer;
+}
+
+.game-board .winner-msg-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+    .game-board {
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+    }
+}
