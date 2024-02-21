@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
 
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/media/favicon.ico">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
     <!-- custom stylesheet -->
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body>
-    
+    <!-- main container for tic-tac-toe game -->
     <main id="tic-tac-toe">
         <h1 class="game-title">Let's Play "Tic Tac Toe"!</h1>
+        <!-- individual cell container -->
         <div class="game-board">
             <button class="cell"></button>
             <button class="cell"></button>
@@ -22,14 +34,17 @@
             <button class="cell"></button>
             <button class="cell"></button>
             <button class="cell"></button>
-            <div class="winner-msg-container">
-                <span class="winner-msg"></span>
+            <!-- container for displaying message through javascript -->
+            <div class="message-container">
+                <span class="message"></span>
             </div>
         </div>
+        <!-- button for resetting game -->
         <button class="reset-btn">Reset</button>
     </main>
 
     <!-- custom script -->
-    <script src="assets/javascript/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
+
 </html>

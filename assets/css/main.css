@@ -1,11 +1,25 @@
+/* Define custom colors using CSS variables */
+:root {
+    --light-color: #fff;
+    --dark-color: #7F7F7F;
+}
+
+/* Apply a common reset to all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* if note responsive on smaller screen cuz of vh remove it */
+/* Define common styles for buttons */
+button {
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+}
+
+/* Main styling */
 body {
+    font-family: "Montserrat", sans-serif;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -20,47 +34,85 @@ body {
 
 .game-title {
     text-align: center;
+    font-weight: 600;
+    color: var(--dark-color);
+    font-size: 2rem;
 }
 
 .game-board {
     display: grid;
     grid-template-columns: repeat(3, 200px);
     grid-template-rows: repeat(3, 200px);
+    justify-content: center;
     gap: 16px;
     position: relative;
 }
 
 .game-board .cell {
-    cursor: pointer;
-    font-size: 4rem;
-}
-
-.game-board .cell:disabled {
-    /* background-color: ; */
+    border: none;
+    border-radius: 12px;
+    font-size: 3rem;
 }
 
 .reset-btn {
     width: fit-content;
     margin: auto;
     padding: 8px 25px;
-    cursor: pointer;
+    border: none;
+    border-radius: 5px;
 }
 
-.game-board .winner-msg-container {
+.game-board .message-container {
     position: absolute;
     height: 100%;
     width: 100%;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(127, 127, 127, 0.8);
+    border-radius: 12px;
+    color: var(--light-color);
     display: none;
     justify-content: center;
     align-items: center;
+}
+
+.message-container .message {
+    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
     font-size: 3rem;
 }
 
-@media screen and (max-width: 768px) {
+/* dynamic classes: added and removed using javascript */
+.cell-x {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .game-board {
+        grid-template-columns: repeat(3, 150px);
+        grid-template-rows: repeat(3, 150px);
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 431px) and (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
     .game-board {
         grid-template-columns: repeat(3, 100px);
         grid-template-rows: repeat(3, 100px);
+    }
+}
+
+@media screen and (max-width: 430px) {
+    html{
+        font-size: 12px;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+        gap: 8px;
     }
 }
