@@ -57,24 +57,20 @@ function checkWin(clickedCell) {
   const clickedCellIndex = Array.from(gameBoard.children).indexOf(clickedCell);
 
   for (let winningPattern of winningPatterns) {
-    if (winningPattern.includes(clickedCellIndex)) {
-      let firstPositionValue = cells[winningPattern[0]].textContent;
-      let secondPositionValue = cells[winningPattern[1]].textContent;
-      let thirdPositionValue = cells[winningPattern[2]].textContent;
+    if (!winningPattern.includes(clickedCellIndex)) continue;
 
-      // If all positions in the pattern have the same value and are not empty, the winning pattern is found
-      if (
-        firstPositionValue !== "" &&
-        secondPositionValue !== "" &&
-        thirdPositionValue !== ""
-      ) {
-        if (
-          firstPositionValue === secondPositionValue &&
-          secondPositionValue === thirdPositionValue
-        ) {
-          return firstPositionValue;
-        }
-      }
+    let firstPositionValue = cells[winningPattern[0]].textContent;
+    let secondPositionValue = cells[winningPattern[1]].textContent;
+    let thirdPositionValue = cells[winningPattern[2]].textContent;
+
+    if (!firstPositionValue || !secondPositionValue || !thirdPositionValue)
+      continue;
+
+    if (
+      firstPositionValue === secondPositionValue &&
+      secondPositionValue === thirdPositionValue
+    ) {
+      return firstPositionValue;
     }
   }
   return false;
